@@ -217,6 +217,7 @@ class LabFive():
 
     def run(self):
         self.is_adekvat = False
+        self.number_of_iterations = 0
         while(not self.is_adekvat):
             self.make_experiment()
             while not self.before_chochren_steps():
@@ -226,6 +227,10 @@ class LabFive():
             self.separator()
             self.student_crit()
             self.fisher_critical()
+            self.number_of_iterations+=1
+            if(self.number_of_iterations>=100):
+                print("Помилка. Немає відповіді, кількість ітерацій доягнула 100")
+                return 100
         
         
 
